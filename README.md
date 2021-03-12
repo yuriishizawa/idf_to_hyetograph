@@ -1,6 +1,6 @@
 # idf_to_hyetograph
 
-Módulo criado para a geração de hietogramas de intensidade de chuva a partir dos parâmetros regionais de curva IDF.
+Módulo criado para a geração de hietogramas de intensidade de chuva a partir dos parâmetros regionais de curva IDF utilizando o Método dos Blocos Alternados.
 
 ## Modo de uso
 
