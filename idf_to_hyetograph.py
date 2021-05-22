@@ -6,6 +6,7 @@ e-mail: yuriishizawa@gmail.com
 
 import csv
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class idf_to_hyetograph:
     def __init__(self, K, a, b, c, T, td, dt):
@@ -72,7 +73,36 @@ class idf_to_hyetograph:
                 writer.writerow([(i+1)*self.dt,val])
         print("Arquivo txt salvo no mesmo diretório deste programa")
     
+    def export_df(self):
+        self.calc_h()
+        h_list = []
+        for i,val in enumerate(self.h):
+            h_list.append([(i+1)*self.dt,val])
+        df = pd.DataFrame(h_list,columns=['dt','intensity'])
+        return df
+
+
     def plot_graph(self):
+        self.calc_h()
+        y_axis = self.h
+        x_axis = []
+
+        for i in list(range(self.dt,self.td+1,self.dt)):
+            x_axis.append(i)
+        
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        #ax.set_aspect(aspect=1)
+        plt.bar(x_axis, y_axis, align='center', color="blue", width=self.dt/2)
+        plt.text((self.td/2)+self.dt, self.dP_t[-2] + self.dt,f'td = {self.td} min, T = {self.T} anos')
+        plt.title("Distribuição da chuva")
+        plt.ylabel("Intensidade (mm/h)")
+        plt.xlabel('Tempo (min)')
+        plt.xticks(x_axis, rotation = 35)
+        plt.tick_params(axis = 'x', which = 'major', labelsize = 8)
+        return fig
+    
+    def plot_save_graph(self):
         self.calc_h()
         y_axis = self.h
         x_axis = []
