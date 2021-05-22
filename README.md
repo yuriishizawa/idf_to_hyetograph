@@ -15,3 +15,6 @@ Com este módulo é possível obter:
 - Um gráfico no formato png com a distribuição da chuva.
 
 Se preferir utilizar Jupyter Notebook, basta abrir o arquivo "example_notebook.ipynb" e alterar os parâmetros de entrada. Caso prefira executar o arquivo "example.py", basta adicionar manualmente os parâmetros de entrada que serão solicitados no console e, em seguida, será gerado o arquivo txt com as intensidades da chuva, assim como o gráfico com a distribuição em png.
+
+## Streamlit
+É possível utilizar também o app no [Streamlit](https://share.streamlit.io/yuriishizawa/idf_to_hyetograph/main/myapp.py).
